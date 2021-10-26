@@ -11,22 +11,17 @@
         ],
         'To' => [
           [
-            'Email' => htmlspecialchars($_POST['email']),
-            'Name' => "fucking test "
+            'Email' => "fcbonnaire01@gmail.com",
+            'Name' => "François"
           ]
         ],
-        'Subject' => htmlspecialchars($_POST['subject']),
-        'TextPart' => "test email",
-        'HTMLPart' => htmlspecialchars($_POST['message'])
-        // 'CustomID' => "AppGettingStartedTest"
+        'Subject' => "Greetings from Mailjet.",
+        'TextPart' => "My first Mailjet email",
+        'HTMLPart' => "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+        'CustomID' => "AppGettingStartedTest"
       ]
     ]
   ];
-//   var_dump($body);
-//   print_r($body['Messages'][0]['To'][0]['Email'])."</br>";
-//   print_r($body['Messages'][0]['Subject'])."</br>";
-//   print_r($body['Messages'][0]['HTMLPart'])."</br>";
-  
   $response = $mj->post(Resources::$Email, ['body' => $body]);
   $response->success() && var_dump($response->getData());
 ?>
