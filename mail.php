@@ -1,19 +1,22 @@
 <?php
+// var_dump($_POST);
+// echo htmlspecialchars($_POST['email'])."</br>".htmlspecialchars($_POST['subject'])."</br>".htmlspecialchars($_POST['message'])."</br>".$_POST['password']."</br>";
+// die();
+
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 //Load Composer's autoloader
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
-sendmail(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['subject']), htmlspecialchars($_POST['message']), $_POST['password']);
+// sendmail(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['subject']), htmlspecialchars($_POST['message']), $_POST['password']);
 function sendmail($email, $subject, $message, $password){
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
